@@ -1,5 +1,5 @@
-!SLIDE 
-# My Presentation #
+!SLIDE
+# The Shell Haters Handbook
 
 !SLIDE bullets incremental
 # Bullet Points #
