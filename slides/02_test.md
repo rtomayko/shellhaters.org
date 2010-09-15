@@ -1,16 +1,3 @@
-!SLIDE
-.notes first slide
-
-# The Shell Haters Handbook
-
-
-!SLIDE bullets
-# Bullet Points #
-
-* first point
-* second point
-* third point
-
 !SLIDE code small
 
     #!/bin/sh
@@ -65,7 +52,7 @@
        [ `hostname` = "mordor" ]
     then
       echo "you're so cliché"
-    elsif [ -z "$name" ]
+    elif [ -z "$name" ]
       echo "Usage: hello <name>"
       false
     else
@@ -83,7 +70,7 @@
        [ `hostname` = "mordor" ]
     then
       echo "you're so cliché"
-    elsif [ -z "$name" ] && grep -q "^$name:" /etc/passwd
+    elif [ -z "$name" ] && grep -q "^$name:" /etc/passwd
       echo "Usage: hello <name>"
       false
     else
@@ -235,21 +222,20 @@
          returns a zero (true) exit status; otherwise it returns 1 (false).  If
          there is no expression, test also returns 1 (false).
 
-!SLIDE code
+!SLIDE code small
 
-    @@@ sh
-    if test "foo" = "bar"
+    #!/bin/sh
+    # Usage: hello <name>
+
+    name="$1"
+
+    if test "$name" = "world" -a "$LOGNAME" != "boss" ||
+       test `hostname` = "mordor"
     then
-      # foo is bar
-      echo "hello world"
+      echo "you're so cliché"
+    elif test -z "$name" && grep -q "^$name:" /etc/passwd
+      echo "Usage: hello <name>"
+      false
+    else
+      echo "hello $name"
     fi
-
-!SLIDE code smaller
-
-    if list; then list; [ elif list; then list; ] ... [ else list; ] fi
-           The if list is executed.  If its exit status is zero, the then
-           list  is  executed. Otherwise, each elif list is executed in turn,
-           and if its exit status is zero, the corresponding then list is executed
-           and the  command  completes.   Otherwise,  the else list is executed, if
-           present.  The exit status is the exit status of the last command executed,
-           or zero if no condition tested true.
