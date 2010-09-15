@@ -1,0 +1,161 @@
+<h1>AWK-ward Ruby</h1>
+
+<p>Ruby, like most successful languages, was assembled from pieces of things that
+came before it: Smalltalk's consistent object system, Perl's practical syntax,
+UNIX's sensibilities. Not that it didn't bring entirely new innovations (block
+syntax!) of its own, but it's amazing to consider how much of Ruby's design
+rests on the elegant packaging of old concepts into a new coherent whole.</p>
+
+<p>There's something less obvious but perhaps more essential that Ruby borrowed:
+the very concept of blatant, unashamed borrowing. In his 1999 talk, <a href="http://www.perl.com/pub/1999/03/pm.html"><em>Perl, the
+first postmodern computer language</em></a>, Larry Wall states plainly that Perl was
+built mostly from things that "didn't suck" in the languages that preceded it:</p>
+
+<blockquote>
+  <p>When I started designing Perl, I explicitly set out to deconstruct all the
+computer languages I knew and recombine or reconstruct them in a different way,
+because there were many things I liked about other languages, and many things I
+disliked. I lovingly reused features from many languages. (I suppose a Modernist
+would say I stole the features, since Modernists are hung up about originality.)
+Whatever the verb you choose, I've done it over the course of the years from C,
+sh, csh, grep, sed, awk, Fortran, COBOL, PL/I, BASIC-PLUS, SNOBOL, Lisp, Ada,
+C++, and Python. To name a few. To the extent that Perl rules rather than sucks,
+it's because the various features of these languages ruled rather than sucked.</p>
+</blockquote>
+
+<p>Ruby, the story goes, borrowed much from Perl: integral regular expressions,
+statement modifiers (<code>do_this if that</code>), array/hash literals, funny global
+variable names, and of course the philosophy of having more than one way to do
+the same thing (TMTOWTDI).</p>
+
+<p>Or did it?</p>
+
+<p>If these features didn't originate with Perl, as Wall seems to imply, then where
+did they come from?</p>
+
+<p>One of the most important influences on Perl's design was AWK. So much so that
+Perl was sometimes described as a semantic superset of AWK. Are the relics of
+AWK still present in Ruby? Let's see.</p>
+
+<p>Today, AWK is probably best known as a versatile tool for extracting fields from
+delimited flat files in a shell pipeline:</p>
+
+<pre><code>cat /etc/passwd | awk -F: '{ print $1 }'
+</code></pre>
+
+<p>It's rare to see AWK used for more complex problems in modern systems, but
+there's actually a full blown programming language lurking beneath the surface.
+It was at one time used to solve a lot of the same problems people commonly use
+Ruby, Perl, or Python to solve today.</p>
+
+<p>You might find some of AWK's language features familiar:</p>
+
+<ul>
+<li>Associative array type.</li>
+<li>Automatic string, integer, and floating point value types.</li>
+<li>C-style <code>if</code>, <code>while</code>, and <code>do</code> constructs.</li>
+<li>For-each style <code>for</code> construct for iterating over associative arrays.</li>
+<li>Arithmetic (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), modulu-division (<code>%</code>), exponentiation (<code>^</code>),
+increment/decrement (<code>++</code>, <code>--</code>), and assignment shorthand (<code>+=</code>, <code>-=</code>, <code>*=</code>, ...)
+operators.</li>
+<li>Array membership operator (<code>expr in array</code>).</li>
+<li>Integral regular expression type and matching operators (<code>str ~ /pattern/</code>).</li>
+<li>Comprehensive builtin function library (a small sample: <code>printf</code>, <code>gsub</code>,
+<code>split</code>, <code>substr</code>, <code>cos</code>, <code>sin</code>, <code>log</code>, <code>sqrt</code>).</li>
+<li>User defined functions.</li>
+</ul>
+
+<p>Not bad for 1977.</p>
+
+<p>It would seem that a large portion of Ruby's basic syntax and semantics were
+present in AWK. So how did Perl come to dominant the problem space? There must
+be something very <em>different</em> about AWK.</p>
+
+<p>While AWK had much of the primitive syntax right, it also overcompensated for a
+specific case: processing streams of delimited text. The top-level context is
+used exclusively for declaring one or more matching statements:</p>
+
+<pre><code>pattern { action }
+...
+</code></pre>
+
+<p>Here, <code>pattern</code> is a full blown expression and <code>action</code> is a block of code
+executed when <code>pattern</code> evaluates truthfully. The <code>pattern</code> is tested for each
+line (or record) of input and <code>action</code> is executed when <code>pattern</code> returns
+truthfully.  Omitting the <code>pattern</code> causes the action to be executed for every
+line.</p>
+
+<p>There's special patterns for setting actions up to run before the first line of
+input is read and after all lines have been processed. Here's an example that
+uses the special <code>BEGIN</code> pattern along with a regular expression match. It
+prints all the usernames from <code>/etc/passwd</code> while avoiding comment lines:</p>
+
+<pre><code>cat /etc/passwd |
+awk '
+    BEGIN     { FS = ":" }
+    /^[a-z_]/ { print $1 }
+'
+</code></pre>
+
+<p>(NOTE: You can paste bomb that into your shell on just about any UNIX system.)</p>
+
+<p>Here's a more complex example that shows off some of AWK's advanced features,
+like associative arrays and for-in syntax. It calculates word frequencies from
+the text of Jonathan Swift's, <em>A Modest Proposal</em>:</p>
+
+<pre><code>curl -s http://www.gutenberg.org/files/1080/1080.txt |
+awk '
+    BEGIN { FS="[^a-zA-Z]+" }
+
+    {
+        for (i=1; i&lt;=NF; i++) {
+            word = tolower($i)
+            words[word]++
+        }
+    }
+
+    END {
+        for (w in words)
+             printf("%3d %s\n", words[w], w)
+    }
+' |
+sort -rn
+</code></pre>
+
+<p>It may seem strange, but this style of programming was very common in UNIX's
+hayday. Instead of programs being dominated by a single language like Perl or
+Ruby, you'd build pipelines that combined standard utilities (like <code>sort</code> shown
+above), sprinkle in bits and pieces of AWK as needed, and drop down to C when
+performance was critical.</p>
+
+<p>Perl took the guts of AWK and left behind the mandatory pattern matching at the
+top-level. That simple design change turned what was a special purpose language
+for processing delimited text streams into what we know today as a <em>general
+purpose scripting language</em>.</p>
+
+<p>But that's not the end of the story.</p>
+
+<p>It was important that Perl be able to act as a replacement for AWK in all its
+capacities, including within shell pipelines. This meant having the ability to
+run <code>perl</code> in a kind of top-level AWK mode. Ruby borrowed this capability from
+Perl, making it possible to use Ruby for the same style of programming
+facilitated by AWK, complete with <code>BEGIN</code> and <code>END</code> blocks!</p>
+
+<p>Here's the word frequency script in AWK-ish Ruby:</p>
+
+<pre><code>curl -s http://www.gutenberg.org/files/1080/1080.txt |
+ruby -ne '
+  BEGIN { $words = Hash.new(0) }
+
+  $_.split(/[^a-zA-Z]+/).each { |word| $words[word.downcase] += 1 }
+
+  END {
+    $words.each { |word, i| printf "%3d %s\n", i, word }
+  }
+' |
+sort -rn
+</code></pre>
+
+<p>The <code>-n</code> argument causes Ruby to assume a <code>while gets(); ... end</code> loop around
+the provided script. <code>$_</code> is set to the last line read and the <code>BEGIN</code> and <code>END</code>
+blocks function exactly as they did in AWK.</p>
