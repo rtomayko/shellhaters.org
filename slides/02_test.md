@@ -145,7 +145,6 @@
 
 !SLIDE commandline
 
-
     $ man [
     TEST(1)      BSD General Commands Manual     TEST(1)
 
@@ -180,11 +179,13 @@
     -r-xr-xr-x  2 root  62K May 18  2009 /bin/[
 
 !SLIDE commandline bigger
+.notes on mac
 
     $ diff -s /bin/[ /bin/test
     Files /bin/[ and /bin/test are identical
 
 !SLIDE commandline big
+.notes slightly different on linux. who knows?
 
     $ uname
     Linux
@@ -198,35 +199,25 @@
     $ diff -s /usr/bin/[ /usr/bin/test
     Binary files /usr/bin/[ and /usr/bin/test differ
 
-!SLIDE commandline
+!SLIDE commandline bigger
+.notes TODO make incremental
+.notes exit status
+.notes /bin/[ just for fun
+
+    $ test 1 = 1
+    $ echo $?
+    0
 
     $ test 1 = 0
     $ echo $?
-    0
+    1
 
     $ /bin/[ 1 = 0
     $ echo $?
-    0
-
-!SLIDE smaller commandline
-
-
-    $ man test
-    TEST(1)                   BSD General Commands Manual                  TEST(1)
-
-    NAME
-         test, [ -- condition evaluation utility
-
-    SYNOPSIS
-         test expression
-         [ expression ]
-
-    DESCRIPTION
-         The test utility evaluates the expression and, if it evaluates to true,
-         returns a zero (true) exit status; otherwise it returns 1 (false).  If
-         there is no expression, test also returns 1 (false).
+    1
 
 !SLIDE code small
+.notes TODO separate commands from shell language
 
     #!/bin/sh
     # Usage: hello <name>
@@ -243,3 +234,45 @@
     else
       echo "hello $name"
     fi
+
+!SLIDE code big
+
+    while true
+    do
+        echo "boom"
+        sleep 1
+    done
+
+!SLIDE commandline huge
+
+    $ which true
+    /bin/true
+
+!SLIDE commandline huge
+
+    $ which false
+    /bin/false
+
+!SLIDE code big
+
+    while /bin/true
+    do
+        echo "boom"
+        sleep 1
+    done
+
+!SLIDE code big
+
+    while [ $# -gt 0 ]
+    do
+        echo "$1"
+        shift
+    done
+
+!SLIDE code big
+
+    while test $# -gt 0
+    do
+        echo "$1"
+        shift
+    done
