@@ -8,7 +8,16 @@
   font-size:200%
 }
 
+.ascii-intro pre {
+  font-size:30px;
+  font-weight:bold;
+  position:relative;
+  top:-40px;
+  left:-45px;
+}
+
 /* cheat sheet */
+
 .cheat {
   font-family:'dejavu sans mono', monospace;
   font-size:22px;
