@@ -1,3 +1,7 @@
+!SLIDE
+
+# Command Language
+
 !SLIDE code small
 
     #!/bin/sh
