@@ -67,9 +67,25 @@
 * <img src="ieee.jpg" style='max-width:300px'>
 * ![](opengroup.gif)
 
+!SLIDE
+
+# Where?
+
 !SLIDE center full-page
 
 ![](sus-bookstore2.png)
+
+!SLIDE center full-page
+
+![](sus-register.png)
+
+!SLIDE center
+
+<img src="fuuuuuuuu.jpg" style='width:1024px'>
+
+!SLIDE
+
+### <http://www.opengroup.org/onlinepubs/9699919799/utilities/contents.html>
 
 !SLIDE
 
