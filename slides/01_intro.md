@@ -23,5 +23,39 @@
 
 # The UNIX Shell #
 
-* Interactive Command Line
-* Programming Language
+!SLIDE
+
+# Interactive Command Line
+
+!SLIDE center
+
+![](terminal.png)
+
+!SLIDE
+
+# Also, Programming Language
+
+!SLIDE center
+
+![](lang-shocco.png)
+
+!SLIDE bullets incremental
+
+# Why?
+
+ * Everywhere
+ * Simple
+ * Powerful
+ * Mind altering
+
+!SLIDE center
+
+![](rvm.png)
+
+!SLIDE center
+
+![](git.png)
+
+!SLIDE center
+
+<img src="haters.jpg" style="width:1024px">
