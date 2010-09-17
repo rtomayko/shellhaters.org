@@ -57,6 +57,7 @@
     then
       echo "you're so cliché"
     elif [ -z "$name" ]
+    then
       echo "Usage: hello <name>"
       false
     else
@@ -75,6 +76,7 @@
     then
       echo "you're so cliché"
     elif [ -z "$name" ] && grep -q "^$name:" /etc/passwd
+    then
       echo "Usage: hello <name>"
       false
     else
@@ -229,6 +231,7 @@
     then
       echo "you're so cliché"
     elif test -z "$name" && grep -q "^$name:" /etc/passwd
+    then
       echo "Usage: hello <name>"
       false
     else
