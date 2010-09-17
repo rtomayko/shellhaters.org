@@ -9,3 +9,8 @@ file 'cheat.frag' => ['cheat.md', 'Rakefile'] do |f|
   File.open('cheat.frag', 'wb') { |fd| fd.write(html) }
   puts 'cheat.md -> cheat.frag'
 end
+
+desc "Start the server locally"
+task :start do
+    exec "thin --port=9090 --rackup=config.ru start"
+end
