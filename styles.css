@@ -1,9 +1,6 @@
 a, a:visited {
   color:blue
 }
-pre, code, tt {
-  font-family:'consolas','dejavu sans mono','bitstream vera sans mono',monospace;
-}
 
 /* slide styles */
 
@@ -18,7 +15,7 @@ pre, code, tt {
 }
 
 .ascii-intro pre {
-  font-size:32px;
+  font-size:30px;
   font-weight:bold;
   position:relative;
   top:-40px;
