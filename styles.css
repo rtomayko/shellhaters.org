@@ -39,6 +39,11 @@ a, a:visited {
   top:10px;
 }
 
+.slide-about h1 a {
+  text-decoration:none
+}
+
+
 /* cheat sheet */
 
 .cheat {

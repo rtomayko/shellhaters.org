@@ -1,3 +1,10 @@
+!SLIDE bullets slide-about
+
+# [Ryan Tomayko](http://tomayko.com/about)
+
+* [twitter.com/rtomayko](http://twitter.com/rtomayko)
+* [github.com/rtomayko](http://github.com/rtomayko)
+
 !SLIDE center
 
 <img src="leave.png" style="width:1024px">
