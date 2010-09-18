@@ -186,21 +186,6 @@
     $ diff -s /bin/[ /bin/test
     Files /bin/[ and /bin/test are identical
 
-!SLIDE commandline big
-.notes slightly different on linux. who knows?
-
-    $ uname
-    Linux
-
-    $ which [
-    /usr/bin/[
-
-    $ ls -l /usr/bin/[
-    -rwxr-xr-x 1 root 39K 2008-04-04 07:58 /usr/bin/[
-
-    $ diff -s /usr/bin/[ /usr/bin/test
-    Binary files /usr/bin/[ and /usr/bin/test differ
-
 !SLIDE commandline bigger
 .notes TODO make incremental
 .notes exit status
