@@ -85,22 +85,16 @@
 
 !SLIDE
 
-### <http://www.opengroup.org/onlinepubs/9699919799/utilities/contents.html>
+## <http://opengroup.org/onlinepubs/9699919799/>
 
-!SLIDE
+!SLIDE bullets
 
-# <http://man.cx/>
+# Hater's Shortcut
 
-## (use `1posix` section manual pages)
+## <http://shellhaters.heroku.com/posix>
 
-!SLIDE center full-page
+!SLIDE image center shortcut-image
 
-![](mancx-posix.png)
+## <http://shellhaters.heroku.com/posix>
 
-!SLIDE
-
-# Debian
-
-    apt-get install manpages-posix
-
-### (non-free repository)
+<img src="shortcut.png">

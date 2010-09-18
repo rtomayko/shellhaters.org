@@ -2,7 +2,17 @@ a, a:visited {
   color:blue
 }
 
-/* slide styles */
+#preso a, #preso a:visited {
+  color:#000;
+}
+#preso a:hover {
+  color:#f00;
+}
+#preso h1 a, #preso h2 a, #preso h3 a {
+  letter-spacing:-1px;
+}
+
+/* generic slide styles */
 
 .big {
   font-size:120%
@@ -14,12 +24,19 @@ a, a:visited {
   font-size:200%
 }
 
+/* specific slide styles */
+
 .ascii-intro pre {
   font-size:30px;
   font-weight:bold;
   position:relative;
   top:-40px;
   left:-45px;
+}
+
+.shortcut-image img {
+  position:relative;
+  top:10px;
 }
 
 /* cheat sheet */

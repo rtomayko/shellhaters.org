@@ -46,3 +46,19 @@
         exit 2
     }
 
+!SLIDE
+
+# <http://man.cx/>
+
+## (use `1posix` section manual pages)
+
+!SLIDE center full-page
+
+![](mancx-posix.png)
+
+!SLIDE bullets
+
+# Debian
+
+* <code style='font-size:48px'>apt-get install manpages-posix</code>
+* *(non-free apt repository only)*
