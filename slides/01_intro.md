@@ -43,18 +43,18 @@
 
 # Why?
 
- * Everywhere
- * Simple
- * Powerful
- * Mind altering
+ * It's everywhere
+ * Automating workflow
+ * Text wrangling
+ * Conceptually different
 
 !SLIDE center
 
-![](rvm.png)
+<img src="rvm.png" style='width:300px'>
 
 !SLIDE center
 
-![](git.png)
+<img src="git.png" style='width:250px'>
 
 !SLIDE center
 
