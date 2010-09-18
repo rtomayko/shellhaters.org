@@ -2,86 +2,86 @@
 
 # Command Language
 
-!SLIDE code small
+!SLIDE code shell-example
 
-    #!/bin/sh
-    # Usage: hello <name>
+<pre><code><b class='syn-com'>#!/bin/sh
+# Usage: hello &lt;name></b>
 
-    name="$1"
+<b class='syn-name'>name</b>=<b class='syn-str'>"$1"</b>
 
-    if [ "$name" = "world" ]
-    then
-      echo "you're so cliché"
-    else
-      echo "hello $name"
-    fi
+<b class='syn-shell'>if [ <b class='syn-str'>"$name"</b> = <b class='syn-str'>"world"</b> ]</b>
+<b class='syn-shell'>then</b>
+    <b class='syn-shell'>echo</b> <b class='syn-str'>"you're so cliché"</b>
+<b class='syn-shell'>else</b>
+    <b class='syn-shell'>echo</b> <b class='syn-str'>"hello $name"</b>
+<b class='syn-shell'>fi</b></pre>
 
-!SLIDE code small
+!SLIDE code shell-example
 
-    #!/bin/sh
-    # Usage: hello <name>
+<pre><code><b class='syn-com'>#!/bin/sh
+# Usage: hello &lt;name></b>
 
-    name="$1"
+<b class='syn-name'>name</b>=<b class='syn-str'>"$1"</b>
 
-    if [ "$name" = "world" -a "$LOGNAME" != "boss" ]
-    then
-      echo "you're so cliché"
-    else
-      echo "hello $name"
-    fi
+<b class='syn-shell'>if [ <b class='syn-str'>"$name"</b> = <b class='syn-str'>"world"</b> <span class='syn-hilight'>-a <b class='syn-str'>"$LOGNAME"</b> != <b class='syn-str'>"boss"</b></span> ]</b>
+<b class='syn-shell'>then</b>
+    <b class='syn-shell'>echo</b> <b class='syn-str'>"you're so cliché"</b>
+<b class='syn-shell'>else</b>
+    <b class='syn-shell'>echo</b> <b class='syn-str'>"hello $name"</b>
+<b class='syn-shell'>fi</b></pre>
 
-!SLIDE code small
+!SLIDE code shell-example
 
-    #!/bin/sh
-    # Usage: hello <name>
+<pre><code><b class='syn-com'>#!/bin/sh
+# Usage: hello &lt;name></b>
 
-    name="$1"
+<b class='syn-name'>name</b>=<b class='syn-str'>"$1"</b>
 
-    if [ "$name" = "world" -a "$LOGNAME" != "boss" ] ||
-       [ `hostname` = "mordor" ]
-    then
-      echo "you're so cliché"
-    else
-      echo "hello $name"
-    fi
+<b class='syn-shell'>if [ <b class='syn-str'>"$name"</b> = <b class='syn-str'>"world"</b> -a <b class='syn-str'>"$LOGNAME"</b> != <b class='syn-str'>"boss"</b> ]<b class='syn-hilight'> ||
+   [ <b class='syn-var'>`hostname`</b> = <b class='syn-str'>"mordor"</b> ]</b></b>
+<b class='syn-shell'>then</b>
+    <b class='syn-shell'>echo</b> <b class='syn-str'>"you're so cliché"</b>
+<b class='syn-shell'>else</b>
+    <b class='syn-shell'>echo</b> <b class='syn-str'>"hello $name"</b>
+<b class='syn-shell'>fi</b></pre>
 
-!SLIDE code small
+!SLIDE code shell-example
 
-    #!/bin/sh
-    # Usage: hello <name>
+<pre><code><b class='syn-com'>#!/bin/sh
+# Usage: hello &lt;name></b>
 
-    name="$1"
+<b class='syn-shell'><b class='syn-name'>name</b>=<b class='syn-str'>"$1"</b>
 
-    if [ "$name" = "world" -a "$LOGNAME" != "boss" ] ||
-       [ `hostname` = "mordor" ]
-    then
-      echo "you're so cliché"
-    elif [ -z "$name" ]
-    then
-      echo "Usage: hello <name>"
-      false
-    else
-      echo "hello $name"
-    fi
+if [ <b class='syn-str'>"$name"</b> = <b class='syn-str'>"world"</b> -a <b class='syn-str'>"$LOGNAME"</b> != <b class='syn-str'>"boss"</b> ] ||
+   [ <b class='syn-var'>`hostname`</b> = <b class='syn-str'>"mordor"</b> ]
+then
+    echo <b class='syn-str'>"you're so cliché"</b>
+<span class='syn-hilight'>elif [ -z <b class='syn-str'>"$name"</b> ]
+then
+    echo <b class='syn-str'>"Usage: hello &lt;name>"</b>
+    false</span>
+else
+    echo <b class='syn-str'>"hello $name"</b>
+fi</b></pre>
 
-!SLIDE code small
+!SLIDE code shell-example
 
-    #!/bin/sh
-    # Usage: hello <name>
+<pre><code><b class='syn-com'>#!/bin/sh
+# Usage: hello &lt;name></b>
 
-    name="$1"
+<b class='syn-shell'><b class='syn-name'>name</b>=<b class='syn-str'>"$1"</b>
 
-    if [ "$name" = "world" -a "$LOGNAME" != "boss" ] ||
-       [ `hostname` = "mordor" ]
-    then
-      echo "you're so cliché"
-    elif [ -z "$name" ] && grep -q "^$name:" /etc/passwd
-    then
-      echo "Usage: hello <name>"
-      false
-    else
-      echo "hello $name"
-    fi
+if [ <b class='syn-str'>"$name"</b> = <b class='syn-str'>"world"</b> -a <b class='syn-str'>"$LOGNAME"</b> != <b class='syn-str'>"boss"</b> ] ||
+   [ <b class='syn-var'>`hostname`</b> = <b class='syn-str'>"mordor"</b> ]
+then
+    echo <b class='syn-str'>"you're so cliché"</b>
+elif [ -z <b class='syn-str'>"$name"</b> ]<span class='syn-hilight'> &amp;&amp; grep -q <b class='syn-str'>"^$name:"</b> /etc/passwd</span>
+then
+    echo <b class='syn-str'>"Usage: hello &lt;name>"</b>
+    false
+else
+    echo <b class='syn-str'>"hello $name"</b>
+fi</b></pre>
 
 !SLIDE commandline huge
 
@@ -203,25 +203,62 @@
     $ echo $?
     1
 
-!SLIDE code small
-.notes TODO separate commands from shell language
+!SLIDE code shell-example
 
-    #!/bin/sh
-    # Usage: hello <name>
+<pre><code><b class='syn-com'>#!/bin/sh
+# Usage: hello &lt;name></b>
 
-    name="$1"
+<b class='syn-shell'><b class='syn-name'>name</b>=<b class='syn-str'>"$1"</b>
 
-    if test "$name" = "world" -a "$LOGNAME" != "boss" ||
-       test `hostname` = "mordor"
-    then
-      echo "you're so cliché"
-    elif test -z "$name" && grep -q "^$name:" /etc/passwd
-    then
-      echo "Usage: hello <name>"
-      false
-    else
-      echo "hello $name"
-    fi
+if test <b class='syn-str'>"$name"</b> = <b class='syn-str'>"world"</b> -a <b class='syn-str'>"$LOGNAME"</b> != <b class='syn-str'>"boss"</b> ||
+   test <b class='syn-var'>`hostname`</b> = <b class='syn-str'>"mordor"</b>
+then
+    echo <b class='syn-str'>"you're so cliché"</b>
+elif test -z <b class='syn-str'>"$name"</b> &amp;&amp; grep -q <b class='syn-str'>"^$name:"</b> /etc/passwd
+then
+    echo <b class='syn-str'>"Usage: hello &lt;name>"</b>
+    false
+else
+    echo <b class='syn-str'>"hello $name"</b>
+fi</b></pre>
+
+!SLIDE code shell-example
+
+<pre><code><b class='syn-com'>#!/bin/sh
+# Usage: hello &lt;name></b>
+
+<b class='syn-shell'><b class='syn-hilight'>name="$1"</b>
+
+<b class='syn-hilight'>if</b> test "$name" = "world" -a "$LOGNAME" != "boss" <b class='syn-hilight'>||</b>
+   test `hostname` = "mordor"
+<b class='syn-hilight'>then</b>
+    echo "you're so cliché"
+<b class='syn-hilight'>elif</b> test -z "$name" <b class='syn-hilight'>&amp;&amp;</b> grep -q "^$name:" /etc/passwd
+<b class='syn-hilight'>then</b>
+    echo "Usage: hello &lt;name>"
+    false
+<b class='syn-hilight'>else</b>
+    echo "hello $name"
+<b class='syn-hilight'>fi</b></b></pre>
+
+!SLIDE code shell-example
+
+<pre><code><b class='syn-com'>#!/bin/sh
+# Usage: hello &lt;name></b>
+
+<b class='syn-shell'>name="$1"
+
+if <b class='syn-hilight'>test "$name" = "world" -a "$LOGNAME" != "boss"</b> ||
+   <b class='syn-hilight'>test `hostname` = "mordor"</b>
+then
+    <b class='syn-hilight'>echo "you're so cliché"</b>
+elif <b class='syn-hilight'>test -z "$name"</b> &amp;&amp; <b class='syn-hilight'>grep -q "^$name:" /etc/passwd</b>
+then
+    <b class='syn-hilight'>echo "Usage: hello &lt;name>"</b>
+    <b class='syn-hilight'>false</b>
+else
+    <b class='syn-hilight'>echo "hello $name"</b>
+fi</b></pre>
 
 !SLIDE code big
 

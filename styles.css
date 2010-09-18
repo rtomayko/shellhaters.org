@@ -86,6 +86,22 @@ a, a:visited {
   line-height:1.3;
 }
 
+/* syntax highlight */
+
+#preso pre code b {
+  font-weight:normal
+}
+.shell-example pre code {
+  font-size:34px;
+  letter-spacing:-2px;
+}
+.syn-com   { color: #776 }
+.syn-name  { color: teal }
+.syn-shell { color: #000;font-weight:bold }
+.syn-str   { color: #d00 }
+.syn-var   { color: #990073 }
+.syn-hilight { background:#ffff66; }
+
 /* cheat sheet */
 
 .cheat {
