@@ -1,3 +1,11 @@
+html {
+  overflow:hidden
+}
+
+code {
+  letter-spacing:-2px;
+}
+
 a, a:visited {
   color:blue
 }
