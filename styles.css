@@ -31,6 +31,9 @@ a, a:visited {
 .huge {
   font-size:200%
 }
+.tiny {
+  font-size:70%
+}
 
 /* specific slide styles */
 

@@ -31,10 +31,6 @@
 * `zsh` - Z shell (Paul Falstad, 1990)
 * `dash` - Debian Almquist Shell (Herbert Xu, 1997)
 
-!SLIDE huge
-
-# Bash Sucks
-
 !SLIDE commandline huge
 
     $ man bash | wc -w

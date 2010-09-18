@@ -39,15 +39,6 @@
 
 ![](lang-shocco.png)
 
-!SLIDE bullets incremental
-
-# Why?
-
- * It's everywhere
- * Automating workflow
- * Text wrangling
- * Conceptually different
-
 !SLIDE center
 
 <img src="rvm.png" style='width:300px'>

@@ -264,3 +264,13 @@
         echo "$1"
         shift
     done
+
+!SLIDE bullets incremental
+
+# Special Purpose Language
+
+* Fundamental Abstraction: The Command
+* Builtins
+* External Programs
+* Functions
+* Aliases
