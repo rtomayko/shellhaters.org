@@ -38,7 +38,7 @@ a, a:visited {
 /* specific slide styles */
 
 .ascii-intro pre {
-  font-size:30px;
+  font-size:33px;
   font-weight:bold;
   position:relative;
   top:-40px;
@@ -95,10 +95,10 @@ a, a:visited {
   font-size:34px;
   letter-spacing:-2px;
 }
-.syn-com   { color: #776 }
-.syn-name  { color: teal }
+.syn-com   { color: #999 }
+.syn-name  { color: #000 }
 .syn-shell { color: #000;font-weight:bold }
-.syn-str   { color: #d00 }
+.syn-str   { color: #722 }
 .syn-var   { color: #990073 }
 .syn-hilight { background:#ffff66; }
 
