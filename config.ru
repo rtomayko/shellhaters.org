@@ -11,6 +11,13 @@ class Shortcut < Sinatra::Base
     end
   end
 
+  %w[/awkward].each do |url|
+    get url do
+      content_type 'text/html', :charset => 'utf8'
+      File.read('awkward.html')
+    end
+  end
+
   get '/styles.css' do
     content_type 'text/css'
     File.read('styles.css')
