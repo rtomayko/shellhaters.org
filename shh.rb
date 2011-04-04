@@ -1,3 +1,4 @@
+require 'rdiscount'
 require 'sinatra'
 
 class SHH < Sinatra::Base
@@ -18,7 +19,9 @@ class SHH < Sinatra::Base
   %w[/posix /cheat].each do |url|
     get url do
       content_type 'text/html', :charset => 'utf8'
-      File.read('cheat.html')
+      @title = "The Hater's Shortcut to The POSIX Shell and Utilities"
+      @body_class = 'cheat'
+      erb :cheat
     end
   end
 

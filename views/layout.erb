@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html style='overflow:auto'>
+<head>
+  <title><%= @title %></title>
+  <link rel='stylesheet' type='text/css' href='/styles.css'>
+</head>
+<body<%= " class='#{@body_class}'" if @body_class %>>
+<%= yield %>
+</body>
+</html>
