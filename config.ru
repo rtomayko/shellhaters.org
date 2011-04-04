@@ -3,7 +3,7 @@ require "sinatra"
 
 Dir.chdir File.dirname(__FILE__)
 
-class Shortcut < Sinatra::Base
+class Index < Sinatra::Base
   %w[/index /].each do |url|
     get url do
       content_type 'text/html', :charset => 'utf8'
@@ -38,5 +38,5 @@ class Shortcut < Sinatra::Base
   end
 end
 
-use Shortcut
+use Index
 run ShowOff.new
