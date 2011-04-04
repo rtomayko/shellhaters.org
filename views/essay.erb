@@ -1,0 +1,12 @@
+<link rel='stylesheet' href='http://tomayko.com/css/tomayko.css'>
+
+<div id='container'>
+  <div id='header'>
+    <p><a href="http://tomayko.com/about" rel="me author">Ryan Tomayko</a></p>
+    <h1 id='title'>AWK-ward Ruby</h1>
+    <p class='date'>Monday, April 04, 2011</p>
+  </div>
+  <div id='content' class='entry'>
+    <%= markdown('awkward.md').sub(/<h1>.*?<\/h1>/, '') %>
+  </div>
+</div>

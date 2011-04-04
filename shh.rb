@@ -25,9 +25,16 @@ class SHH < Sinatra::Base
     end
   end
 
+  def markdown(file)
+    text = File.read(file)
+    Markdown.new(text).to_html
+  end
+
   get '/awkward' do
     content_type 'text/html', :charset => 'utf8'
-    File.read('awkward.html')
+    @title = "AWK-ward Ruby"
+    @body_class = 'essay'
+    erb :essay
   end
 
   get '/styles.css' do
