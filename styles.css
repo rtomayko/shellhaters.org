@@ -115,6 +115,16 @@ a, a:visited {
 .cheat h1 {
   text-align:center;
   font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+  margin-bottom:0;
+}
+.cheat .subtitle {
+  text-align:center;
+  font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+  margin-top:0;
+  color:#555;
+}
+.cheat .subtitle a {
+  color:#333;
 }
 .cheat h2 {
   font-size:24px;
