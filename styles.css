@@ -113,7 +113,8 @@ a, a:visited {
   margin:0 auto;
 }
 .cheat h1 {
-  text-align:center
+  text-align:center;
+  font-family: "Gill Sans", Helvetica, Arial, sans-serif;
 }
 .cheat h2 {
   font-size:24px;
