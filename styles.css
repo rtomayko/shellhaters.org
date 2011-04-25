@@ -152,3 +152,11 @@ a, a:visited {
   margin:20px auto;
   text-align:center
 }
+p.confreaks {
+  font-size:0.8em;
+  color:#333;
+  margin:0 0 5px 0;
+}
+p.confreaks a {
+  color:#555;
+}
