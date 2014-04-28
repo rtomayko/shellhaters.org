@@ -113,7 +113,18 @@ a, a:visited {
   margin:0 auto;
 }
 .cheat h1 {
-  text-align:center
+  text-align:center;
+  font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+  margin-bottom:0;
+}
+.cheat .subtitle {
+  text-align:center;
+  font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+  margin-top:0;
+  color:#555;
+}
+.cheat .subtitle a {
+  color:#333;
 }
 .cheat h2 {
   font-size:24px;
@@ -131,4 +142,21 @@ a, a:visited {
 }
 .cheat .misc {
   display:none;
+}
+
+/* home */
+.shh {
+  font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+  font-size:1.25em;
+  width:700px;
+  margin:20px auto;
+  text-align:center
+}
+p.confreaks {
+  font-size:0.8em;
+  color:#333;
+  margin:0 0 5px 0;
+}
+p.confreaks a {
+  color:#555;
 }
