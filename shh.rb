@@ -33,7 +33,7 @@ class SHH < Sinatra::Base
   end
 
   # pass /deck down to Showoff after faking root URLs
-  get '/deck' do |url|
+  get '/deck' do
     @env['REQUEST_PATH'] = '/'
     @env['PATH_INFO'] = '/'
     @env['REQUEST_URL'] = '/'
