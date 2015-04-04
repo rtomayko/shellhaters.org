@@ -2,107 +2,7 @@ html {
   overflow:hidden
 }
 
-code {
-  letter-spacing:-2px;
-}
-
-a, a:visited {
-  color:blue
-}
-
-#preso a, #preso a:visited {
-  color:#000;
-}
-#preso a:hover {
-  color:#f00;
-}
-#preso h1 a, #preso h2 a, #preso h3 a {
-  letter-spacing:-1px;
-}
-
-/* generic slide styles */
-
-.big {
-  font-size:120%
-}
-.bigger {
-  font-size:150%
-}
-.huge {
-  font-size:200%
-}
-.tiny {
-  font-size:70%
-}
-
-/* specific slide styles */
-
-.ascii-intro pre {
-  font-size:33px;
-  font-weight:bold;
-  position:relative;
-  top:-40px;
-  left:-45px;
-}
-
-.shortcut-image img {
-  position:relative;
-  top:10px;
-}
-
-.slide-about h1 a {
-  text-decoration:none
-}
-
-.terminal pre {
-  position:absolute;
-  top:20px;
-  left:10px;
-  width:980px;
-  height:700px;
-  background:#000;
-  color:#fff;
-  padding:10px;
-  margin:0;
-  font-size:38px;
-  text-align:left;
-  overflow:hidden;
-}
-.terminal pre code {
-  letter-spacing:-4px;
-}
-.terminal code.command {
-  color:#fff;
-}
-.terminal code.result {
-  color:#999;
-}
-.terminal pre, .terminal pre code {
-  font-family:consolas;
-}
-
-.vim pre {
-  border-left:40px solid #666;
-  line-height:1.3;
-}
-
-/* syntax highlight */
-
-#preso pre code b {
-  font-weight:normal
-}
-.shell-example pre code {
-  font-size:34px;
-  letter-spacing:-2px;
-}
-.syn-com   { color: #999 }
-.syn-name  { color: #000 }
-.syn-shell { color: #000;font-weight:bold }
-.syn-str   { color: #722 }
-.syn-var   { color: #990073 }
-.syn-hilight { background:#ffff66; }
-
-/* cheat sheet */
+/* posix shell index */
 
 .cheat {
   font-family:'consolas','dejavu sans mono','bitstream vera sans mono',monospace;
@@ -144,7 +44,7 @@ a, a:visited {
   display:none;
 }
 
-/* home */
+/* talk page */
 .shh {
   font-family: "Gill Sans", Helvetica, Arial, sans-serif;
   font-size:1.25em;
