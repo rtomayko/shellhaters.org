@@ -1,0 +1,18 @@
+#!/bin/sh
+# Usage: ./configure
+# Configure development environment.
+set -e
+
+cd "$(dirname "$0")"
+
+# install gems and generate binstubs
+mkdir -p bin
+bundle install --standalone --path="$(pwd)/gems" --binstubs bin
+
+# apply the jekyll server html stripping patch
+gemdir=$(bundle show jekyll)
+if [ ! -f "$gemdir/lib/jekyll/commands/serve.rb.orig" ]; then
+    echo "Applying https://github.com/jekyll/jekyll/pull/3452 ..."
+    curl -s "https://github.com/jekyll/jekyll/pull/3452.patch" |
+      patch -d "$gemdir" -b -p1
+fi

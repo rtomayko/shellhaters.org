@@ -1,0 +1,677 @@
+<div id="slides/01_intro" class="slide code ascii-intro" data-transition="none"><div class="content code ascii-intro" ref="slides/01_intro/1">
+<pre><code>                   _____ _
+                  /__   \ |__   ___
+                    / /\/ '_ \ / _ \
+                   / /  | | | |  __/
+                   \/   |_| |_|\___|
+
+    __ _          _ _               _            _
+   / _\ |__   ___| | |   /\  /\__ _| |_ ___ _ __( )__
+   \ \| '_ \ / _ \ | |  / /_/ / _` | __/ _ \ '__|/ __|
+   _\ \ | | |  __/ | | / __  / (_| | ||  __/ |   \__ \
+   \__/_| |_|\___|_|_| \/ /_/ \__,_|\__\___|_|   |___/
+
+                           _ _                 _
+      /\  /\__ _ _ __   __| | |__   ___   ___ | | __
+     / /_/ / _` | '_ \ / _` | '_ \ / _ \ / _ \| |/ /
+    / __  / (_| | | | | (_| | |_) | (_) | (_) |   &lt;
+    \/ /_/ \__,_|_| |_|\__,_|_.__/ \___/ \___/|_|\_\
+</code></pre></div>
+</div><div id="slides/01_intro" class="slide bullets incremental" data-transition="none"><div class="content bullets incremental" ref="slides/01_intro/2">
+<h1>The UNIX Shell</h1></div>
+</div><div id="slides/01_intro" class="slide " data-transition="none"><div class="content " ref="slides/01_intro/3">
+<h1>Interactive Command Line</h1></div>
+</div><div id="slides/01_intro" class="slide center" data-transition="none"><div class="content center" ref="slides/01_intro/4">
+<p><img src="image/slides/terminal.png" alt=""/></p></div>
+</div><div id="slides/01_intro" class="slide " data-transition="none"><div class="content " ref="slides/01_intro/5">
+<h1>Also, Programming Language</h1></div>
+</div><div id="slides/01_intro" class="slide center" data-transition="none"><div class="content center" ref="slides/01_intro/6">
+<p><img src="image/slides/lang-shocco.png" alt=""/></p></div>
+</div><div id="slides/01_intro" class="slide center" data-transition="none"><div class="content center" ref="slides/01_intro/7">
+<p><img src="image/slides/rvm.png" style="width:300px"/></p></div>
+</div><div id="slides/01_intro" class="slide center" data-transition="none"><div class="content center" ref="slides/01_intro/8">
+<p><img src="image/slides/git.png" style="width:250px"/></p></div>
+</div><div id="slides/01_intro" class="slide center" data-transition="none"><div class="content center" ref="slides/01_intro/9">
+<p><img src="image/slides/haters.jpg" style="width:1024px"/></p></div>
+</div><div id="slides/02_test" class="slide " data-transition="none"><div class="content " ref="slides/02_test/1">
+<h1>Command Language</h1></div>
+</div><div id="slides/02_test" class="slide code shell-example" data-transition="none"><div class="content code shell-example" ref="slides/02_test/2">
+<pre><code><b class="syn-com">#!/bin/sh
+# Usage: hello &lt;name&gt;</b>
+
+<b class="syn-name">name</b>=<b class="syn-str">"$1"</b>
+
+<b class="syn-shell">if [ <b class="syn-str">"$name"</b> = <b class="syn-str">"world"</b> ]</b>
+<b class="syn-shell">then</b>
+    <b class="syn-shell">echo</b> <b class="syn-str">"you're so clich&#xE9;"</b>
+<b class="syn-shell">else</b>
+    <b class="syn-shell">echo</b> <b class="syn-str">"hello $name"</b>
+<b class="syn-shell">fi</b></code></pre></div>
+</div><div id="slides/02_test" class="slide code shell-example" data-transition="none"><div class="content code shell-example" ref="slides/02_test/3">
+<pre><code><b class="syn-com">#!/bin/sh
+# Usage: hello &lt;name&gt;</b>
+
+<b class="syn-name">name</b>=<b class="syn-str">"$1"</b>
+
+<b class="syn-shell">if [ <b class="syn-str">"$name"</b> = <b class="syn-str">"world"</b> <span class="syn-hilight">-a <b class="syn-str">"$LOGNAME"</b> != <b class="syn-str">"boss"</b></span> ]</b>
+<b class="syn-shell">then</b>
+    <b class="syn-shell">echo</b> <b class="syn-str">"you're so clich&#xE9;"</b>
+<b class="syn-shell">else</b>
+    <b class="syn-shell">echo</b> <b class="syn-str">"hello $name"</b>
+<b class="syn-shell">fi</b></code></pre></div>
+</div><div id="slides/02_test" class="slide code shell-example" data-transition="none"><div class="content code shell-example" ref="slides/02_test/4">
+<pre><code><b class="syn-com">#!/bin/sh
+# Usage: hello &lt;name&gt;</b>
+
+<b class="syn-name">name</b>=<b class="syn-str">"$1"</b>
+
+<b class="syn-shell">if [ <b class="syn-str">"$name"</b> = <b class="syn-str">"world"</b> -a <b class="syn-str">"$LOGNAME"</b> != <b class="syn-str">"boss"</b> ]<b class="syn-hilight"> ||
+   [ <b class="syn-var">`hostname`</b> = <b class="syn-str">"mordor"</b> ]</b></b>
+<b class="syn-shell">then</b>
+    <b class="syn-shell">echo</b> <b class="syn-str">"you're so clich&#xE9;"</b>
+<b class="syn-shell">else</b>
+    <b class="syn-shell">echo</b> <b class="syn-str">"hello $name"</b>
+<b class="syn-shell">fi</b></code></pre></div>
+</div><div id="slides/02_test" class="slide code shell-example" data-transition="none"><div class="content code shell-example" ref="slides/02_test/5">
+<pre><code><b class="syn-com">#!/bin/sh
+# Usage: hello &lt;name&gt;</b>
+
+<b class="syn-shell"><b class="syn-name">name</b>=<b class="syn-str">"$1"</b>
+
+if [ <b class="syn-str">"$name"</b> = <b class="syn-str">"world"</b> -a <b class="syn-str">"$LOGNAME"</b> != <b class="syn-str">"boss"</b> ] ||
+   [ <b class="syn-var">`hostname`</b> = <b class="syn-str">"mordor"</b> ]
+then
+    echo <b class="syn-str">"you're so clich&#xE9;"</b>
+<span class="syn-hilight">elif [ -z <b class="syn-str">"$name"</b> ]
+then
+    echo <b class="syn-str">"Usage: hello &lt;name&gt;"</b>
+    false</span>
+else
+    echo <b class="syn-str">"hello $name"</b>
+fi</b></code></pre></div>
+</div><div id="slides/02_test" class="slide code shell-example" data-transition="none"><div class="content code shell-example" ref="slides/02_test/6">
+<pre><code><b class="syn-com">#!/bin/sh
+# Usage: hello &lt;name&gt;</b>
+
+<b class="syn-shell"><b class="syn-name">name</b>=<b class="syn-str">"$1"</b>
+
+if [ <b class="syn-str">"$name"</b> = <b class="syn-str">"world"</b> -a <b class="syn-str">"$LOGNAME"</b> != <b class="syn-str">"boss"</b> ] ||
+   [ <b class="syn-var">`hostname`</b> = <b class="syn-str">"mordor"</b> ]
+then
+    echo <b class="syn-str">"you're so clich&#xE9;"</b>
+elif [ -z <b class="syn-str">"$name"</b> ]<span class="syn-hilight"> &amp;&amp; grep -q <b class="syn-str">"^$name:"</b> /etc/passwd</span>
+then
+    echo <b class="syn-str">"Usage: hello &lt;name&gt;"</b>
+    false
+else
+    echo <b class="syn-str">"hello $name"</b>
+fi</b></code></pre></div>
+</div><div id="slides/02_test" class="slide commandline huge" data-transition="none"><div class="content commandline huge" ref="slides/02_test/7">
+<pre><code><code class="command">$ man if</code>
+<code class="result">No manual entry for if
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide commandline smaller" data-transition="none"><div class="content commandline smaller" ref="slides/02_test/8">
+<pre><code><code class="command">$ man if</code>
+<code class="result">BUILTIN(1)                BSD General Commands Manual               BUILTIN(1)
+
+NAME
+     builtin, !, %, ., :, @, {, }, alias, alloc, bg, bind, bindkey, break,
+     breaksw, builtins, case, cd, chdir, command, complete, continue, default,
+     dirs, do, done, echo, echotc, elif, else, end, endif, endsw, esac, eval,
+     exec, exit, export, false, fc, fg, filetest, fi, for, foreach, getopts,
+     glob, goto, hash, hashstat, history, hup, if, jobid, jobs, kill, limit,
+     local, log, login, logout, ls-F, nice, nohup, notify, onintr, popd,
+     printenv, pushd, pwd, read, readonly, rehash, repeat, return, sched, set,
+     setenv, settc, setty, setvar, shift, source, stop, suspend, switch,
+     telltc, test, then, time, times, trap, true, type, ulimit, umask,
+     unalias, uncomplete, unhash, unlimit, unset, unsetenv, until, wait,
+     where, which, while -- shell built-in commands
+
+SYNOPSIS
+     builtin [-options] [args ...]
+
+DESCRIPTION
+     Shell builtin commands are commands that can be executed within the run-
+     ning shell's process.  Note that, in the case of csh(1) builtin commands,
+     the command is executed in a subshell if it occurs as any component of a
+     pipeline except the last.
+
+     If a command specified to the shell contains a slash ``/'', the shell
+     will not execute a builtin command, even if the last component of the
+     specified command matches the name of a builtin command.  Thus, while
+     specifying ``echo'' causes a builtin command to be executed under shells
+     that support the echo builtin command, specifying ``/bin/echo'' or
+     ``./echo'' does not.
+
+     While some builtin commands may exist in more than one shell, their oper-
+     ation may be different under each shell which supports them.  Below is a
+     table which lists shell builtin commands, the standard shells that sup-
+     port them and whether they exist as standalone utilities.
+
+     ...
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide commandline smaller" data-transition="none"><div class="content commandline smaller" ref="slides/02_test/9">
+<pre><code><code class="command">$ help if</code>
+<code class="result">if: if COMMANDS; then COMMANDS;
+    [ elif COMMANDS; then COMMANDS; ]...
+    [ else COMMANDS; ]
+    fi
+
+    The `if COMMANDS' list is executed.  If its exit status is zero, then the
+    `then COMMANDS' list is executed.  Otherwise, each `elif COMMANDS' list is
+    executed in turn, and if its exit status is zero, the corresponding
+    `then COMMANDS' list is executed and the if command completes.  Otherwise,
+    the `else COMMANDS' list is executed, if present.  The exit status of the
+    entire construct is the exit status of the last command executed, or zero
+    if no condition tested true.
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide commandline" data-transition="none"><div class="content commandline" ref="slides/02_test/10">
+<pre><code><code class="command">$ man [</code>
+<code class="result">TEST(1)      BSD General Commands Manual     TEST(1)
+
+NAME
+     test, [ -- condition evaluation utility
+
+SYNOPSIS
+     test expression
+     [ expression ]
+
+DESCRIPTION
+     The test utility evaluates the expression and, if it
+     evaluates to true, returns a zero (true) exit status;
+     otherwise it returns 1 (false).  If there is no
+     expression, test also returns 1 (false).
+
+     All operators and flags are separate arguments to the
+     test utility.
+
+     The following primaries are used to construct expres-
+     sions:
+...
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide commandline huge" data-transition="none"><div class="content commandline huge" ref="slides/02_test/11">
+<pre><code><code class="command">$ which [</code>
+<code class="result">/bin/[
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide commandline big" data-transition="none"><div class="content commandline big" ref="slides/02_test/12">
+<pre><code><code class="command">$ ls -l /bin/[</code>
+<code class="result">-r-xr-xr-x  2 root  62K May 18  2009 /bin/[
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide commandline bigger" data-transition="none"><div class="content commandline bigger" ref="slides/02_test/13">
+<div class="notes">
+<p>on mac</p>
+</div>
+
+<pre><code><code class="command">$ diff -s /bin/[ /bin/test</code>
+<code class="result">Files /bin/[ and /bin/test are identical
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide commandline bigger" data-transition="none"><div class="content commandline bigger" ref="slides/02_test/14">
+<div class="notes">
+<p>TODO make incremental
+exit status
+/bin/[ just for fun</p>
+</div>
+
+<pre><code><code class="command">$ test 1 = 1</code>
+<code class="command">$ echo $?</code>
+<code class="result">0
+
+</code><code class="command">$ test 1 = 0</code>
+<code class="command">$ echo $?</code>
+<code class="result">1
+
+</code><code class="command">$ /bin/[ 1 = 0</code>
+<code class="command">$ echo $?</code>
+<code class="result">1
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide code shell-example" data-transition="none"><div class="content code shell-example" ref="slides/02_test/15">
+<pre><code><b class="syn-com">#!/bin/sh
+# Usage: hello &lt;name&gt;</b>
+
+<b class="syn-shell"><b class="syn-name">name</b>=<b class="syn-str">"$1"</b>
+
+if test <b class="syn-str">"$name"</b> = <b class="syn-str">"world"</b> -a <b class="syn-str">"$LOGNAME"</b> != <b class="syn-str">"boss"</b> ||
+   test <b class="syn-var">`hostname`</b> = <b class="syn-str">"mordor"</b>
+then
+    echo <b class="syn-str">"you're so clich&#xE9;"</b>
+elif test -z <b class="syn-str">"$name"</b> &amp;&amp; grep -q <b class="syn-str">"^$name:"</b> /etc/passwd
+then
+    echo <b class="syn-str">"Usage: hello &lt;name&gt;"</b>
+    false
+else
+    echo <b class="syn-str">"hello $name"</b>
+fi</b></code></pre></div>
+</div><div id="slides/02_test" class="slide code shell-example" data-transition="none"><div class="content code shell-example" ref="slides/02_test/16">
+<pre><code><b class="syn-com">#!/bin/sh
+# Usage: hello &lt;name&gt;</b>
+
+<b class="syn-shell"><b class="syn-hilight">name="$1"</b>
+
+<b class="syn-hilight">if</b> test "$name" = "world" -a "$LOGNAME" != "boss" <b class="syn-hilight">||</b>
+   test `hostname` = "mordor"
+<b class="syn-hilight">then</b>
+    echo "you're so clich&#xE9;"
+<b class="syn-hilight">elif</b> test -z "$name" <b class="syn-hilight">&amp;&amp;</b> grep -q "^$name:" /etc/passwd
+<b class="syn-hilight">then</b>
+    echo "Usage: hello &lt;name&gt;"
+    false
+<b class="syn-hilight">else</b>
+    echo "hello $name"
+<b class="syn-hilight">fi</b></b></code></pre></div>
+</div><div id="slides/02_test" class="slide code shell-example" data-transition="none"><div class="content code shell-example" ref="slides/02_test/17">
+<pre><code><b class="syn-com">#!/bin/sh
+# Usage: hello &lt;name&gt;</b>
+
+<b class="syn-shell">name="$1"
+
+if <b class="syn-hilight">test "$name" = "world" -a "$LOGNAME" != "boss"</b> ||
+   <b class="syn-hilight">test `hostname` = "mordor"</b>
+then
+    <b class="syn-hilight">echo "you're so clich&#xE9;"</b>
+elif <b class="syn-hilight">test -z "$name"</b> &amp;&amp; <b class="syn-hilight">grep -q "^$name:" /etc/passwd</b>
+then
+    <b class="syn-hilight">echo "Usage: hello &lt;name&gt;"</b>
+    <b class="syn-hilight">false</b>
+else
+    <b class="syn-hilight">echo "hello $name"</b>
+fi</b></code></pre></div>
+</div><div id="slides/02_test" class="slide code big" data-transition="none"><div class="content code big" ref="slides/02_test/18">
+<pre><code>while true
+do
+    echo "boom"
+    sleep 1
+done
+</code></pre></div>
+</div><div id="slides/02_test" class="slide commandline huge" data-transition="none"><div class="content commandline huge" ref="slides/02_test/19">
+<pre><code><code class="command">$ which true</code>
+<code class="result">/bin/true
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide commandline huge" data-transition="none"><div class="content commandline huge" ref="slides/02_test/20">
+<pre><code><code class="command">$ which false</code>
+<code class="result">/bin/false
+</code></code></pre></div>
+</div><div id="slides/02_test" class="slide code big" data-transition="none"><div class="content code big" ref="slides/02_test/21">
+<pre><code>while /bin/true
+do
+    echo "boom"
+    sleep 1
+done
+</code></pre></div>
+</div><div id="slides/02_test" class="slide code big" data-transition="none"><div class="content code big" ref="slides/02_test/22">
+<pre><code>while [ $# -gt 0 ]
+do
+    echo "$1"
+    shift
+done
+</code></pre></div>
+</div><div id="slides/02_test" class="slide code big" data-transition="none"><div class="content code big" ref="slides/02_test/23">
+<pre><code>while test $# -gt 0
+do
+    echo "$1"
+    shift
+done
+</code></pre></div>
+</div><div id="slides/02_test" class="slide bullets incremental" data-transition="none"><div class="content bullets incremental" ref="slides/02_test/24">
+<h1>Special Purpose Language</h1>
+
+<ul>
+<li>Fundamental Abstraction: The Command</li>
+<li>Builtins</li>
+<li>External Programs</li>
+<li>Functions</li>
+<li>Aliases</li>
+</ul></div>
+</div><div id="slides/03_pipeline" class="slide " data-transition="none"><div class="content " ref="slides/03_pipeline/1">
+<h1>Building Pipelines</h1></div>
+</div><div id="slides/03_pipeline" class="slide terminal commandline" data-transition="none"><div class="content terminal commandline" ref="slides/03_pipeline/2">
+<pre><code><code class="command">$ url="http://www.gutenberg.org/files/1080/1080.txt"</code>
+</code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal commandline" data-transition="none"><div class="content terminal commandline" ref="slides/03_pipeline/3">
+<pre><code><code class="command">$ curl -s "$url"</code>
+<code class="result">The Project Gutenberg EBook of A Modest Proposal, by Jonathan Swift
+
+Title: A Modest Proposal
+       For preventing the children of poor people in Ireland,
+       from being a burden on their parents or country, and for
+       making them beneficial to the publick - 1729
+
+Author: Jonathan Swift
+
+Posting Date: July 27, 2008 [EBook #1080]
+Release Date: October 1997
+
+Language: English
+
+A MODEST PROPOSAL
+
+For preventing the children of poor people in Ireland, from being a
+burden on their parents or country, and for making them beneficial to
+the publick.
+
+...
+</code></code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal commandline" data-transition="none"><div class="content terminal commandline" ref="slides/03_pipeline/4">
+<pre><code><code class="command">$ curl -s "$url" |tr -c "A-Za-z" '\n'</code>
+<code class="result">The
+Project
+Gutenberg
+EBook
+of
+A
+Modest
+Proposal
+
+by
+Jonathan
+Swift
+
+Title
+
+
+A
+Modest
+Proposal
+For
+preventing
+</code></code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal commandline" data-transition="none"><div class="content terminal commandline" ref="slides/03_pipeline/5">
+<pre><code><code class="command">$ curl -s "$url" |tr -c "A-Za-z" '\n' |grep -v '^$'</code>
+<code class="result">The
+Project
+Gutenberg
+EBook
+of
+A
+Modest
+Proposal
+by
+Jonathan
+Swift
+Title
+A
+Modest
+Proposal
+For
+preventing
+</code></code></pre></div>
+</div><div id="slides/03_pipeline" class="slide huge" data-transition="none"><div class="content huge" ref="slides/03_pipeline/6">
+<h1>Control-X-E</h1></div>
+</div><div id="slides/03_pipeline" class="slide terminal vim" data-transition="none"><div class="content terminal vim" ref="slides/03_pipeline/7">
+<pre><code>curl -s "$url" |tr -c "A-Za-z" '\n' |grep -v '^$'
+</code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal vim" data-transition="none"><div class="content terminal vim" ref="slides/03_pipeline/8">
+<pre><code>curl -s "$url"      |
+tr -c "A-Za-z" '\n' |
+grep -v '^$'        |
+sort
+</code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal commandline" data-transition="none"><div class="content terminal commandline" ref="slides/03_pipeline/9">
+<pre><code><code class="command">$ curl -s "$url" |tr -c "A-Za-z" '\n' |grep -v '^$' |sort</code>
+<code class="result">A
+A
+A
+A
+A
+A
+A
+A
+A
+ACTUAL
+AGREE
+AGREE
+AGREEMENT
+AK
+AND
+ANY
+ANY
+ANY
+ANYTHING
+AS
+ASCII
+ASCII
+ASCII
+About
+Additional
+After
+American
+American
+An
+An
+And
+</code></code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal vim" data-transition="none"><div class="content terminal vim" ref="slides/03_pipeline/10">
+<pre><code>curl -s "$url"      |
+tr -c "A-Za-z" '\n' |
+grep -v '^$'        |
+sort                |
+uniq -c
+</code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal commandline" data-transition="none"><div class="content terminal commandline" ref="slides/03_pipeline/11">
+<pre><code><code class="command">$ curl -s "$url" |tr -c "A-Za-z" '\n' |grep -v '^$' |sort |uniq -c</code>
+<code class="result">   9 A
+   1 ACTUAL
+   2 AGREE
+   1 AGREEMENT
+   1 AK
+   1 AND
+   3 ANY
+   1 ANYTHING
+   1 AS
+   3 ASCII
+   1 About
+   1 Additional
+   1 After
+   2 American
+   2 An
+   5 And
+   2 Anonymous
+   1 Any
+  13 Archive
+   4 As
+   1 Author
+   2 B
+   1 BE
+   1 BEFORE
+   2 BREACH
+   1 BUT
+   1 Barbadoes
+   7 But
+</code></code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal vim" data-transition="none"><div class="content terminal vim" ref="slides/03_pipeline/12">
+<pre><code>curl -s "$url"      |
+tr -c "A-Za-z" '\n' |
+grep -v '^$'        |
+sort                |
+uniq -c             |
+sort -rn
+</code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal commandline" data-transition="none"><div class="content terminal commandline" ref="slides/03_pipeline/13">
+<pre><code><code class="command">$ curl -s "$url" |tr -c "A-Za-z" '\n' |grep -v '^$' |sort |uniq -c |sort -rn</code>
+<code class="result"> 327 the
+ 237 of
+ 182 to
+ 178 and
+ 141 a
+ 126 in
+ 107 or
+  83 Project
+  83 Gutenberg
+  69 be
+  63 for
+  60 this
+  58 with
+  57 tm
+  55 by
+  55 I
+  52 you
+  51 that
+  50 work
+  47 is
+  45 as
+  43 at
+  42 will
+  41 are
+  40 any
+  38 their
+  36 it
+</code></code></pre></div>
+</div><div id="slides/03_pipeline" class="slide terminal vim" data-transition="none"><div class="content terminal vim" ref="slides/03_pipeline/14">
+<pre><code>#!/bin/sh
+# Usage: wordfreq &lt;url&gt;
+# Show top 25 words in document at &lt;url&gt;.
+
+url="$1"
+
+curl -s "$url"      |
+tr -c "A-Za-z" '\n' |
+grep -v '^$'        |
+sort                |
+uniq -c             |
+sort -rn            |
+head -25
+</code></pre></div>
+</div><div id="slides/04_posix" class="slide bigger" data-transition="none"><div class="content bigger" ref="slides/04_posix/1">
+<h1><code>POSIX_ME_HARDER</code></h1></div>
+</div><div id="slides/04_posix" class="slide " data-transition="none"><div class="content " ref="slides/04_posix/2">
+<h1>There are a lot of shells</h1></div>
+</div><div id="slides/04_posix" class="slide bullets incremental" data-transition="none"><div class="content bullets incremental" ref="slides/04_posix/3">
+<h1>Early Shells</h1>
+
+<ul>
+<li>
+<code>sh</code> - Thompson Shell (Ken Thompson, 1971)</li>
+<li>
+<code>sh</code> - Mashey Shell (John Mashey, 1976)</li>
+<li>
+<code>sh</code> - Bourne Shell (Steve Bourne, 1977)</li>
+</ul></div>
+</div><div id="slides/04_posix" class="slide bullets incremental" data-transition="none"><div class="content bullets incremental" ref="slides/04_posix/4">
+<h1>MOAR Shells</h1>
+
+<ul>
+<li>
+<code>csh</code> - C Shell (Bill Joy, 1978-79)</li>
+<li>
+<code>ksh</code> - Korn Shell (David Korn, 1982)</li>
+<li>
+<code>ash</code> - Almquist Shell (Kenneth Almquist, 1989)</li>
+<li>
+<code>rc</code> - Plan 9 shell (Tom Duff, 1989)</li>
+</ul></div>
+</div><div id="slides/04_posix" class="slide bullets incremental" data-transition="none"><div class="content bullets incremental" ref="slides/04_posix/5">
+<h1>Modern Shells</h1>
+
+<ul>
+<li>
+<code>bash</code> - Bourne Again Shell (Brian Fox, 1987)</li>
+<li>
+<code>zsh</code> - Z shell (Paul Falstad, 1990)</li>
+<li>
+<code>dash</code> - Debian Almquist Shell (Herbert Xu, 1997)</li>
+</ul></div>
+</div><div id="slides/04_posix" class="slide commandline huge" data-transition="none"><div class="content commandline huge" ref="slides/04_posix/6">
+<pre><code><code class="command">$ man bash | wc -w</code>
+<code class="result">40868
+
+</code><code class="command">$ man dash | wc -w</code>
+<code class="result">10102
+</code></code></pre></div>
+</div><div id="slides/04_posix" class="slide code" data-transition="none"><div class="content code" ref="slides/04_posix/7">
+<pre><code>BUGS
+  It's too big and too slow.
+
+  There are some subtle differences
+  between bash and traditional versions
+  of sh, mostly because of the POSIX
+  specification.
+
+  Aliases are confusing in some uses.
+
+  Shell builtin commands and functions
+  are not stoppable/restartable.
+
+  ...
+</code></pre></div>
+</div><div id="slides/04_posix" class="slide smbullets incremental" data-transition="none"><div class="content smbullets incremental" ref="slides/04_posix/8">
+<h1>POSIX Shell</h1>
+
+<ul>
+<li><img src="image/slides/ieee.jpg" style="max-width:300px"/></li>
+<li><img src="image/slides/opengroup.gif" alt=""/></li>
+</ul></div>
+</div><div id="slides/04_posix" class="slide " data-transition="none"><div class="content " ref="slides/04_posix/9">
+<h1>Where?</h1></div>
+</div><div id="slides/04_posix" class="slide center full-page" data-transition="none"><div class="content center full-page" ref="slides/04_posix/10">
+<p><img src="image/slides/sus-bookstore2.png" alt=""/></p></div>
+</div><div id="slides/04_posix" class="slide center full-page" data-transition="none"><div class="content center full-page" ref="slides/04_posix/11">
+<p><img src="image/slides/sus-register.png" alt=""/></p></div>
+</div><div id="slides/04_posix" class="slide center" data-transition="none"><div class="content center" ref="slides/04_posix/12">
+<p><img src="image/slides/fuuuuuuuu.jpg" style="width:1024px"/></p></div>
+</div><div id="slides/04_posix" class="slide " data-transition="none"><div class="content " ref="slides/04_posix/13">
+<h2><a href="http://opengroup.org/onlinepubs/9699919799/">http://opengroup.org/onlinepubs/9699919799/</a></h2></div>
+</div><div id="slides/04_posix" class="slide bullets" data-transition="none"><div class="content bullets" ref="slides/04_posix/14">
+<h1>Hater's Shortcut</h1>
+
+<h2><a href="http://shellhaters.heroku.com/posix">http://shellhaters.heroku.com/posix</a></h2></div>
+</div><div id="slides/04_posix" class="slide image center shortcut-image" data-transition="none"><div class="content image center shortcut-image" ref="slides/04_posix/15">
+<h2><a href="http://shellhaters.heroku.com/posix">http://shellhaters.heroku.com/posix</a></h2>
+
+<p><img src="image/slides/shortcut.png"/></p></div>
+</div><div id="slides/10_grab_bag" class="slide bullets slide-about" data-transition="none"><div class="content bullets slide-about" ref="slides/10_grab_bag/1">
+<h1><a href="http://tomayko.com/about">Ryan Tomayko</a></h1>
+
+<ul>
+<li><a href="http://twitter.com/rtomayko">twitter.com/rtomayko</a></li>
+<li><a href="http://github.com/rtomayko">github.com/rtomayko</a></li>
+</ul></div>
+</div><div id="slides/10_grab_bag" class="slide center" data-transition="none"><div class="content center" ref="slides/10_grab_bag/2">
+<p><img src="image/slides/leave.png" style="width:1024px"/></p></div>
+</div><div id="slides/10_grab_bag" class="slide " data-transition="none"><div class="content " ref="slides/10_grab_bag/3">
+<h1>Template Script</h1></div>
+</div><div id="slides/10_grab_bag" class="slide code small" data-transition="none"><div class="content code small" ref="slides/10_grab_bag/4">
+<pre class="sh_sh"><code>#!/bin/sh
+#/ Usage: your-great-program [-o &lt;optional&gt;] &lt;mandatory&gt;
+#/ A single-sentence description of your great program.
+set -e
+
+# show program usage
+if [ $# -eq 0 -o "$1" = "--help" ]
+then
+    grep '^#/' &lt;"$0" |
+    cut -c4-
+    exit 2
+fi
+
+# your great code</code></pre></div>
+</div><div id="slides/10_grab_bag" class="slide " data-transition="none"><div class="content " ref="slides/10_grab_bag/5">
+<h1>Use <code>&amp;&amp;</code> and <code>||</code> instead of <code>if</code>
+</h1></div>
+</div><div id="slides/10_grab_bag" class="slide code" data-transition="none"><div class="content code" ref="slides/10_grab_bag/6">
+<pre class="sh_sh"><code># instead of:
+if [ $# -eq 0 -o "$1" = "--help" ]
+then
+    grep '^#/' &lt;"$0" |
+    cut -c4-
+    exit 2
+fi
+
+# try this:
+test $# -eq 0 -o "$1" = "--help" &amp;&amp; {
+    grep '^#/' &lt;"$0" |
+    cut -c4-
+    exit 2
+}</code></pre></div>
+</div><div id="slides/10_grab_bag" class="slide " data-transition="none"><div class="content " ref="slides/10_grab_bag/7">
+<h1><a href="http://man.cx/">http://man.cx/</a></h1>
+
+<h2>(use <code>1posix</code> section manual pages)</h2></div>
+</div><div id="slides/10_grab_bag" class="slide center full-page" data-transition="none"><div class="content center full-page" ref="slides/10_grab_bag/8">
+<p><img src="image/slides/mancx-posix.png" alt=""/></p></div>
+</div><div id="slides/10_grab_bag" class="slide bullets" data-transition="none"><div class="content bullets" ref="slides/10_grab_bag/9">
+<h1>Debian</h1>
+
+<ul>
+<li><code style="font-size:48px">apt-get install manpages-posix</code></li>
+<li><em>(non-free apt repository only)</em></li>
+</ul></div>
+</div>
