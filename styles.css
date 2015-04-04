@@ -1,9 +1,24 @@
-html {
-  overflow:hidden
+body {
+  font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+  font-size:1.25em;
+  max-width:700px;
+  margin:20px auto;
+}
+
+/* talk page */
+.shh {
+  text-align:center
+}
+p.confreaks {
+  font-size:0.8em;
+  color:#333;
+  margin:0 0 5px 0;
+}
+p.confreaks a {
+  color:#555;
 }
 
 /* posix shell index */
-
 .cheat {
   font-family:'consolas','dejavu sans mono','bitstream vera sans mono',monospace;
   font-size:22px;
@@ -42,21 +57,4 @@ html {
 }
 .cheat .misc {
   display:none;
-}
-
-/* talk page */
-.shh {
-  font-family: "Gill Sans", Helvetica, Arial, sans-serif;
-  font-size:1.25em;
-  width:700px;
-  margin:20px auto;
-  text-align:center
-}
-p.confreaks {
-  font-size:0.8em;
-  color:#333;
-  margin:0 0 5px 0;
-}
-p.confreaks a {
-  color:#555;
 }
