@@ -5,7 +5,23 @@ body {
   margin:20px auto;
 }
 
+/* book index page */
+
+.book-index ul, .book-index li {
+  margin-left:0;
+  padding-left:0;
+  list-style-type:none;
+}
+.book-index ul {
+  font-weight:bold;
+}
+.book-index del {
+  color:#555;
+  text-decoration:none;
+}
+
 /* talk page */
+
 .shh {
   text-align:center
 }
@@ -19,6 +35,7 @@ p.confreaks a {
 }
 
 /* posix shell index */
+
 .cheat {
   font-family:'consolas','dejavu sans mono','bitstream vera sans mono',monospace;
   font-size:22px;
