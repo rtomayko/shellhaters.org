@@ -1,3 +1,4 @@
 safe: true
 url:  "shellhaters.org"
 exclude: ["bin", "vendor", "Makefile", "configure", "gems"]
+markdown: redcarpet
